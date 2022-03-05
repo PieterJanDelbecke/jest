@@ -6,6 +6,8 @@ function App() {
 
   const [disabled, setDisabled] = useState(false);
 
+  const fullButtonColor = disabled ? 'grey' : buttonColor
+
   const handleClick = () => {
     setButtonColor(newButtonColor);
   };
@@ -17,7 +19,7 @@ function App() {
   return (
     <>
       <button
-        style={{ backgroundColor: buttonColor }}
+        style={{ backgroundColor: fullButtonColor }}
         onClick={handleClick}
         disabled={disabled}
       >
