@@ -9,26 +9,26 @@ import { replaceCamelWithSpaces } from './App.js'
 test("button has correct initial color", () => {
   render(<App />);
   // assign the button to the colorButton variable
-  const colorButton = screen.getByRole("button", { name: "Change to blue" });
+  const colorButton = screen.getByRole("button", { name: "Change to Midnight Blue" });
 
   // check if the background colour of the button is red
-  expect(colorButton).toHaveStyle({ backgroundColor: "red" });
+  expect(colorButton).toHaveStyle({ backgroundColor: "MediumVioletRed" });
 
   // click button
   fireEvent.click(colorButton);
 
   // check if the background colour of the button is blue
-  expect(colorButton).toHaveStyle({ backgroundColor: "blue" });
+  expect(colorButton).toHaveStyle({ backgroundColor: "MidnightBlue" });
 
   // check if the text of the button is 'Change to red'
-  expect(colorButton.textContent).toBe("Change to red");
+  expect(colorButton.textContent).toBe("Change to Medium Violet Red");
 });
 
 test("initial conditions", () => {
   render(<App />);
 
   // check that the button starts out enabled
-  const colorButton = screen.getByRole("button", { name: "Change to blue" });
+  const colorButton = screen.getByRole("button", { name: "Change to Midnight Blue" });
   expect(colorButton).toBeEnabled();
 
   // check that the checkbox starts out unchecked
@@ -41,7 +41,7 @@ test("checkbox disables on first click and enables on second click", () => {
 
   // check that the button is disabled
   const checkbox = screen.getByRole("checkbox", { name: "Disable button" });
-  const button = screen.getByRole("button", { name: "Change to blue" });
+  const button = screen.getByRole("button", { name: "Change to Midnight Blue" });
 
   fireEvent.click(checkbox);
   expect(button).toBeDisabled();
@@ -54,25 +54,25 @@ test("check if button turns grey when disabled and back to red or blue when enab
   render(<App />);
 
   const checkbox = screen.getByRole("checkbox", { name: "Disable button" });
-  const button = screen.getByRole("button", { name: "Change to blue" });
+  const button = screen.getByRole("button", { name: "Change to Midnight Blue" });
 
   fireEvent.click(checkbox)
   expect(button).toHaveStyle({backgroundColor: 'grey'})
 
   fireEvent.click(checkbox)
-  expect(button).toHaveStyle({backgroundColor: 'red'})
+  expect(button).toHaveStyle({backgroundColor: 'MediumVioletRed'})
 
   fireEvent.click(button)
-  expect(button).toHaveStyle({backgroundColor: 'blue'})
+  expect(button).toHaveStyle({backgroundColor: 'MidnightBlue'})
 
   fireEvent.click(checkbox)
   expect(button).toHaveStyle({backgroundColor: 'grey'})
 
   fireEvent.click(checkbox)
-  expect(button).toHaveStyle({backgroundColor: 'blue'})
+  expect(button).toHaveStyle({backgroundColor: 'MidnightBlue'})
 });
 
-// UNIT TESTING 
+// UNIT TESTING => test one particular function
 
 describe('spaces before camel-case capital letters', () => {
   test('Works for no inner capital letters', () => {
