@@ -1,21 +1,21 @@
 import { useState } from "react";
 
-export function replaceCamelWithSpaces(colorName){
-  return colorName.replace(/\B([A-Z])\B/g, ' $1')
+export function replaceCamelWithSpaces(colorName) {
+  return colorName.replace(/\B([A-Z])\B/g, " $1");
 }
 
 function App() {
   const [buttonColor, setButtonColor] = useState("MediumVioletRed");
-  const newButtonColor = buttonColor === "MediumVioletRed" ? "MidnightBlue" : "MediumVioletRed";
+  const newButtonColor =
+    buttonColor === "MediumVioletRed" ? "MidnightBlue" : "MediumVioletRed";
 
   const [disabled, setDisabled] = useState(false);
 
-  const fullButtonColor = disabled ? 'grey' : buttonColor
+  const fullButtonColor = disabled ? "grey" : buttonColor;
 
   const handleClick = () => {
     setButtonColor(newButtonColor);
   };
-
 
   return (
     <>
